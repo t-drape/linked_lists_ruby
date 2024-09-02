@@ -70,6 +70,16 @@ class LinkedList
     node.value == value ? index : nil
   end
 
+  def to_s
+    node = @head
+    until node.nil?
+      print "( #{node.value} ) -> "
+      node = node.next_node
+    end
+    print 'nil '
+    puts
+  end
+
   attr_reader :size, :tail, :head
 end
 
@@ -79,4 +89,4 @@ linked_list.prepend(24)
 linked_list.append(30)
 linked_list.append(100)
 
-p linked_list.find(23)
+linked_list.to_s
