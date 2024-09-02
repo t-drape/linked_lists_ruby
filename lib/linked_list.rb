@@ -81,6 +81,23 @@ class LinkedList
     string
   end
 
+  def insert_at(value, index)
+    prev_node = at(index - 1)
+    current_node = at(index)
+    return nil unless current_node
+
+    new_node = Node.new
+    new_node.value = value
+    new_node.next_node = current_node
+    prev_node.next_node = new_node
+  end
+
+  def remove_at(index)
+    removal_node = at(index)
+    prev_node = at(index - 1)
+    prev_node.next_node = removal_node.next_node
+    removal_node.value
+  end
   attr_reader :size, :tail, :head
 end
 
@@ -92,3 +109,8 @@ list.append('parrot')
 list.append('hamster')
 list.append('snake')
 list.append('turtle')
+
+puts list.remove_at(2)
+list.insert_at('rat', 2)
+
+puts list
