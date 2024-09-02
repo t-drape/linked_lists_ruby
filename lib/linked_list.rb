@@ -72,21 +72,23 @@ class LinkedList
 
   def to_s
     node = @head
+    string = ''
     until node.nil?
-      print "( #{node.value} ) -> "
+      string += "( #{node.value} ) -> "
       node = node.next_node
     end
-    print 'nil '
-    puts
+    string += 'nil'
+    string
   end
 
   attr_reader :size, :tail, :head
 end
 
-linked_list = LinkedList.new
-linked_list.prepend(23)
-linked_list.prepend(24)
-linked_list.append(30)
-linked_list.append(100)
+list = LinkedList.new
 
-linked_list.to_s
+list.append('dog')
+list.append('cat')
+list.append('parrot')
+list.append('hamster')
+list.append('snake')
+list.append('turtle')
