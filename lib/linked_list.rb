@@ -100,17 +100,3 @@ class LinkedList
   end
   attr_reader :size, :tail, :head
 end
-
-list = LinkedList.new
-
-list.append('dog')
-list.append('cat')
-list.append('parrot')
-list.append('hamster')
-list.append('snake')
-list.append('turtle')
-
-puts list.remove_at(2)
-list.insert_at('rat', 2)
-
-puts list
