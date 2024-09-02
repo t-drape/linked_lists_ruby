@@ -60,6 +60,16 @@ class LinkedList
     node.value == value
   end
 
+  def find(value)
+    index = 0
+    node = @head
+    while node.value != value && !node.next_node.nil?
+      index += 1
+      node = node.next_node
+    end
+    node.value == value ? index : nil
+  end
+
   attr_reader :size, :tail, :head
 end
 
@@ -69,4 +79,4 @@ linked_list.prepend(24)
 linked_list.append(30)
 linked_list.append(100)
 
-p linked_list.contains?(31)
+p linked_list.find(23)
