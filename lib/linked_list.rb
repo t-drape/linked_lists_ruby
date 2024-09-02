@@ -41,11 +41,23 @@ class LinkedList
 
   def pop
     return_node = @tail
-    node = @head
-    node = node.next_node while node.next_node != @tail
-    node.next_node = nil
-    @tail = node
+    if @head == @tail
+      @head = nil
+      @tail = nil
+    else
+      node = @head
+      node = node.next_node while node.next_node != @tail
+      node.next_node = nil
+      @tail = node
+    end
+    @size -= 1
     return_node
+  end
+
+  def contains?(value)
+    node = @head
+    node = node.next_node while node.value != value && !node.next_node.nil?
+    node.value == value
   end
 
   attr_reader :size, :tail, :head
@@ -57,6 +69,4 @@ linked_list.prepend(24)
 linked_list.append(30)
 linked_list.append(100)
 
-p linked_list.pop
-p linked_list.pop
-p linked_list
+p linked_list.contains?(31)
